@@ -27,13 +27,16 @@ int main()
      i++;
      }
  
-    cout<<inputs[0];
- 
- 
- //  double dt=0.5;
- //    vector<double> t = {0};
- //    t.push_back(t[0]+dt);
-//  cout <<t[1];
+dt=inputs[0];
+N=inputs[1];
+vector<float> t;
+t.push_back(0); 
+for(i=0;i<N;i++){
+     t.push_back(t[i]+dt);
+  }
+for(i=0;i<N;i++){
+     cout<<t[i]<<" \n";
+  } 
 
     }
  
