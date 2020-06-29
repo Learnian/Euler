@@ -10,12 +10,12 @@ int main()
    // ofstream ot("output.dat");
     //string t;
     //string x;
-    float dt;
-    float N;
+    double dt;
+    double N;
     ifstream p ("params.dat");
  
-    vector<float>inputs;
-    float data;
+    vector<double>inputs;
+    double data;
     string str;
     int i=0;
     while( getline( p, str, ' ' ) )
@@ -26,8 +26,8 @@ int main()
           }
      i++;
      }
-   vector<float>delta_t;
-   vector<float>npts;
+   vector<double>delta_t;
+   vector<double>npts;
    for(int j=0;j<inputs.size();j++)
   {
    if(j%2==0){
@@ -38,26 +38,35 @@ int main()
     npts.push_back(inputs[j]);
    }
  }
-   for(int e=0;e<npts.size();e++) {            // need bracket
-    dt=delta_t[e];
-    N=npts[e]; 
-   vector<float> t;
-   t.push_back(0);
-   int N_i=static_cast<int>(N); 
-   for(int in=0;in<(N_i-1);in++){
-       float t_p=t[in];
-       t.push_back((t_p+dt));
-   }
-   cout<<t.back()<<"  back  tn  size  "<<"OR"<<t[t.size()-1]<<" of the "<<e<<"\n";
-cout<<t.size()<<" = size   N=  "<<N_i<<" of  "<<e<<"\n";
-float dt_test=t[1]-t[0];
-cout<<dt_test<<"  dt of   "<<e<<"   dt actual="<<dt<<"\n";
-cout<<t[0]<<" =  t0 of  "<<e<<"\n";
+   for(int e=0;e<npts.size();e++) {            
+     dt=delta_t[e];
+     N=npts[e]; 
+     vector<double> t;
+     t.push_back(0);
+     int N_i=static_cast<int>(N); 
+     for(int in=0;in<(N_i-1);in++){
+         double t_p=t[in];
+         t.push_back((t_p+dt));
+     }
+//     if(e==0){
+//      double a= N_i-N;
+//      cout<<dt<<"   dt\n";
+//     cout<<t[0]<<"   t0\n";
+//       cout<<a<<"   Ni-N\n";
+//       for(int h=8999980;h<(t.size()-1);h++){
+//         cout<<t[h]<<"\n";
+//       }
+//     }
+   cout<<t.back()<<"  back  tn  size  "<<"OR"<<t[t.size()-1]<<" of the "<<e<<"\n\n";
+cout<<t.size()<<" = size   N=  "<<N_i<<" of  "<<e<<"\n\n";
+double dt_test=t[1]-t[0];
+cout<<dt_test<<"  dt of   "<<e<<"   dt actual="<<dt<<"\n\n";
+cout<<t[0]<<" =  t0 of  "<<e<<"\n\n";
 //for(i=0;i<N;i++){
 //     cout<<t[i]<<" \n";
 //  } 
-//   float x0=1.0;
-//   vector<float> x(N);
+//   double x0=1.0;
+//   vector<double> x(N);
 //   x[0]=x0;
 //   for(i=0;i<(N-1);i++)
 //   {
