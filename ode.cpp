@@ -40,12 +40,12 @@ int main()
  }
    for(int e=0;e<npts.size();e++) {            // need bracket
     dt=delta_t[e];
-    N=npts[e] 
+    N=npts[e]; 
    vector<float> t;
    t.push_back(0);
    int N_i=static_cast<int>(N); 
    for(int in=0;in<(N_i-1);in++){
-       float t_p=t[in]
+       float t_p=t[in];
        t.push_back((t_p+dt));
    }
    cout<<t.back()<<"  back  tn  size  "<<"OR"<<t[t.size()-1]<<" of the "<<e<<"\n";
